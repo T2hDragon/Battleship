@@ -1,0 +1,15 @@
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\DAL.deps.json
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\DAL.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\ref\DAL.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\DAL.pdb
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\Domain.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\bin\Debug\net5.0\Domain.pdb
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.csprojAssemblyReference.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.AssemblyInfo.cs
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.csproj.CopyComplete
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\ref\DAL.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\DAL\obj\Debug\net5.0\DAL.pdb

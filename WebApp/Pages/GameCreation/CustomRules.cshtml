@@ -1,0 +1,100 @@
+﻿@page
+@using Domain.Enums
+@model WebApp.Pages.GameCreation.CustomRules
+
+<form method="post">
+
+    @Html.LabelFor(model => model.GameName, "Game name", new {@class = "form-label", required = "required"})
+    @Html.TextBoxFor(model => model.GameName, new {minLength = 1, maxlength = 25, @class = "form-control", required = "required", placeholder = "Game"})
+
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="h3">
+                <u>Game rules</u>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="GameWidth">Game Width</label>
+        </div>
+        <div class="col">
+            <select asp-for="Width" required="required" id="GameWidth" class="form-select">
+                @for (var i = 5; i <= 25; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="GameHeight">Game Height</label>
+        </div>
+        <div class="col">
+            <select asp-for="Height" required="required" id="GameHeight" class="form-select">
+                @for (var i = 5; i <= 15; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <label for="BoatsCanTouch">Boats Can Touch Rule</label>
+        </div>
+        <div class="col">
+            <select asp-for="EBoatsCanTouch" required="required" id="BoatsCanTouch" class="form-select">
+                @foreach (var eBoatsCanTouch in new[] {EBoatsCanTouch.Yes, EBoatsCanTouch.Corner, EBoatsCanTouch.No})
+                {
+                    <option value="@eBoatsCanTouch">@eBoatsCanTouch</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <label for="NextMoveAfterHit">Boats Can Touch Rule</label>
+        </div>
+        <div class="col">
+            <select asp-for="ENextMoveAfterHit" required="required" id="NextMoveAfterHit" class="form-select">
+                @foreach (var eNextMoveAfterHit in new[] {ENextMoveAfterHit.SamePlayer, ENextMoveAfterHit.OtherPlayer})
+                {
+                    <option value="@eNextMoveAfterHit">@eNextMoveAfterHit</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Choose ship amounts</button>
+        </div>
+    </div>
+</form>

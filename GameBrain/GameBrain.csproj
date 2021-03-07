@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+    
+
+    <ItemGroup>
+      <PackageReference Include="System.Text.Json" Version="5.0.0-rc.1.20451.14" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="..\ConsoleApp\bin\Debug\netcoreapp3.1\GameSaves\AutoSave">
+        <Link>GameSaves\AutoSave</Link>
+      </Folder>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+    </ItemGroup>
+
+
+</Project>

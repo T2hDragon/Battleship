@@ -1,0 +1,60 @@
+﻿@page
+@model WebApp.Pages.GameCreation.PresetRules
+
+<form method="post">
+
+    @Html.LabelFor(model => model.GameName, "Game name", new {@class = "form-label", required = "required"})
+    @Html.TextBoxFor(model => model.GameName, new {minLength = 1, maxlength = 25, @class = "form-control", required = "required", placeholder = "Game"})
+
+    @for (var i = 0; i < Model.PlayerCount; i++)
+    {
+        <br>
+        <div class="row">
+            <div class="col">
+                @{
+                    var playerNumber = i + 1;
+                }
+                @Html.LabelFor(model => model.PlayerNames[i], $"Player{playerNumber} name", new {@class = "form-label", required = "required"})
+                @Html.TextBoxFor(model => model.PlayerNames[i], new {minLength = 1, maxlength = 25, @class = "form-control", required = "required", placeholder = $"Player{playerNumber}"})
+            </div>
+        </div>
+    }
+
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="GameOptions">Game rules</label>
+        </div>
+        <div class="col">
+            <select asp-for="GameOptionId" asp-items="@(new SelectList(Model.GameOptions.ToList(), "GameOptionId", "Name"))" required="required" id="GameOptions" class="form-select">
+                <option></option>
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="PlaceShipsAutomatically" class="form-check-label">Place ships automatically</label>
+        </div>
+        <div class="col">
+            <input asp-for="PlaceBoatsAutomatically" class="form-check">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Place ships</button>
+        </div>
+    </div>
+</form>

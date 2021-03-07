@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Tutorial";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tutorial</h1>
+    <p>Battleship is a strategy type guessing game for two players.It is played on ruled grids on which each player's The locations of the fleets are concealed from the other player. Players roate turns calling shots at other player's ships,and the objective of the game is to destroy the opposing player's fleet.</p>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<form method="post">
+    <div class="row">
+        <div class="col">
+            <label for="playerCount" class="form-label">Player Count</label>
+        </div>
+        <div class="col">
+            <select asp-for="PlayerCount" id="playerCount" class="form-select">
+                <option selected>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="UsePresetRules" class="form-label">Use Preset Rules</label>
+        </div>
+        <div class="col">
+            <input asp-for="UsePresetRules" class="form-check">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary" value="Preset">Start A New Game</button>
+        </div>
+    </div>
+</form>

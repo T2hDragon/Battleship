@@ -1,0 +1,9 @@
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\netstandard2.1\MenuSystem.deps.json
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\netstandard2.1\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\netstandard2.1\MenuSystem.pdb
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.csprojAssemblyReference.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.AssemblyInfoInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.AssemblyInfo.cs
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.csproj.CoreCompileInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\netstandard2.1\MenuSystem.pdb

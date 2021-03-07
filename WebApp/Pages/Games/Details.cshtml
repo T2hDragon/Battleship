@@ -1,0 +1,66 @@
+@page
+@model WebApp.Pages_Games.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Game</h4>
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Game Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Game Turns
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.TurnSaves!.Count)
+        </dd>
+        <dt class="col-sm-2">
+            Game Started At
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.CreatedDateTime)
+        </dd>
+        <dt class="col-sm-2">
+            Players Count
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.GameBoards!.Count)
+        </dd>
+        <dt class="col-sm-2">
+            Board Width
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.GameOption!.BoardWidth)
+        </dd>
+        <dt class="col-sm-2">
+            Board Height
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.GameOption!.BoardHeight)
+        </dd>
+        <dt class="col-sm-2">
+            Boats touching
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.GameOption!.EBoatsCanTouch)
+        </dd>
+        <dt class="col-sm-2">
+            Who plays after hit
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game!.GameOption!.ENextMoveAfterHit)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index">Back</a>
+</div>

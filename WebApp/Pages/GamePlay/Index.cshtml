@@ -1,0 +1,231 @@
+﻿@page
+@using System.Data
+@using Domain.Enums
+@using GameBrain
+@model WebApp.Pages.GamePlay.Index
+@{
+    ViewData["Title"] = $"Game {Model.BattleShip.Game.Name}";
+}
+
+@functions
+{
+    string GetCellContent(Player player, (int x, int y) location, bool boatsHidden)
+    {
+        var hasBoatInLocation = player.HasBoatInLocation(location);
+        var hasPlacementBoatInLocation = player.BoatBeingPlaced != null &&
+                                         player.BoatBeingPlaced.GetCellLocations()
+                                             .Contains(location);
+        var eCellState = player.PlayerBoard.GetCellState(location);
+        var cellString = eCellState switch
+        {
+            ECellState.Empty => "&nbsp;",
+            ECellState.Hit => "X",
+            ECellState.Miss => "O",
+            _ => throw new InvalidExpressionException($"Asked unknown cellState: {eCellState}")
+            };
+        if (player.HasBoatSunkInLocation(location))
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            cellString = "#";
+        }
+        else if (player.IsLocationLocked(location, Model.BattleShip.GetBoatsCanTouch()))
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            cellString = "*";
+        }
+    //Modify CellState presentation based on ship locations and game rules
+        else if (!boatsHidden && (hasBoatInLocation || hasPlacementBoatInLocation) && eCellState == ECellState.Empty)
+        {
+            var possibleBoat = hasBoatInLocation
+                ? player.Boats.First(boat => boat.GetCellLocations().Contains(location))
+                : player.GetBoatBeingPlaced();
+            var index = possibleBoat.GetCellLocations().IndexOf(location);
+            cellString = index == 0 ? "<" : index != possibleBoat.GetCellLocations().Count() - 1 ? "S" : ">";
+        }
+        return cellString;
+    }
+
+    string GetTDClass(string cellString)
+    {
+        var result = " font-weight-bold .col m-0 bg-primary";
+        switch (cellString)
+        {
+            case "&nbsp;":
+                break;
+            case "#":
+                result = $"{result} text-warning bg-danger";
+                break;
+            case "X":
+                result = $"{result} text-danger";
+                break;
+            case "*":
+                result = $"{result} text-secondary";
+                break;
+            case "S":
+                result = $"{result} text-dark";
+                break;
+            case "<":
+                result = $"{result} text-dark";
+                break;
+            case ">":
+                result = $"{result} text-dark";
+                break;
+            case "O":
+                result = $"{result} text-info";
+                break;
+            default:
+                throw new InvalidOperationException($"Unknown cell string:\"{cellString}\"");
+        }
+
+        return result;
+    }
+}
+
+@if (Model.BattleShip.GameHasEnded())
+{
+    <p class="h2 text-center">
+        <u> Player @Model.BattleShip.GetCurrentPlayer().Name Won! </u>
+    </p>
+
+    <div class="row">
+        @foreach (var player in Model.BattleShip.GetPlayers())
+        {
+            <div class="col text-center">
+                <table class="table-bordered game-table">
+                    @for (var y = 0; y < Model.Height; y++)
+                    {
+                        <tr class="m-0">
+                            @for (var x = 0; x <= Model.Width; x++)
+                            {
+                                if (x == 0 || y == 0)
+                                {
+                                    if (x == y)
+                                    {
+                                        <td>@Html.Raw("&nbsp;")</td>
+                                    }
+                                    else if (x == 0)
+                                    {
+                                        <td>@(y - 1)</td>
+                                    }
+                                    else if (y == 0)
+                                    {
+                                        <td>@Model.Alphabet[x - 1]</td>
+                                    }
+                                }
+                                else
+                                {
+                                    var cellString = GetCellContent(player, (x - 1, y - 1), false);
+                                    <td class="@GetTDClass(cellString) game-cell">@Html.Raw(cellString)</td>
+                                }
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+    await Model.BattleShip.DeleteFromDatabase(Model.BattleShip.GameId);
+}
+else
+{
+    <p class="h2 text-center">
+        <u> Player @Model.BattleShip.GetCurrentPlayer().Name turn! </u>
+    </p>
+    <div class="row">
+        <div class="col-4">
+            <div class="btn btn-primary btn-block" onclick="window.location.href = '?gameId=@Model.BattleShip.GameId&hidden=@(!Model.Hidden)'"
+                 style="cursor: pointer">
+                @(Model.Hidden ? "Show" : "Hide") My Board
+            </div>
+
+            <div class="btn btn-primary btn-block" onclick="window.location.href = '?gameId=@Model.BattleShip.GameId&undo=true'"
+                 style="cursor: pointer">
+                Undo
+            </div>
+            <a class="btn btn-primary btn-block" asp-page-handler="ExitToMainPage">Save&Exit</a>
+        </div>
+        @if (!Model.Hidden)
+        {
+            <div class="col text-center">
+                <table class="table-bordered">
+                    @for (var y = 0; y <= Model.Height; y++)
+                    {
+                        <tr class="m-0">
+                            @for (var x = 0; x <= Model.Width; x++)
+                            {
+                                if (x == 0 || y == 0)
+                                {
+                                    if (x == y)
+                                    {
+                                        <td>@Html.Raw("&nbsp;")</td>
+                                    }
+                                    else if (x == 0)
+                                    {
+                                        <td>@(y - 1)</td>
+                                    }
+                                    else if (y == 0)
+                                    {
+                                        <td>@Model.Alphabet[x - 1]</td>
+                                    }
+                                }
+                                else
+                                {
+                                    var cellString = GetCellContent(Model.BattleShip.GetCurrentPlayer(), (x - 1, y - 1), false);
+                                    <td class="@GetTDClass(cellString) game-cell">@Html.Raw(cellString)</td>
+                                }
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+
+        @foreach (var player in Model.BattleShip.GetPlayerOpponents(Model.BattleShip.GetPlayers().IndexOf(Model.BattleShip.GetCurrentPlayer())))
+        {
+            <br>
+            <div class="col text-center">
+                <p class="align-middle">Player @player.Name board</p>
+                <table class="table-bordered game-table">
+                    @for (var y = 0; y <= Model.Height; y++)
+                    {
+                        <tr class="m-0">
+                            @for (var x = 0; x <= Model.Width; x++)
+                            {
+                                if (x == 0 || y == 0)
+                                {
+                                    if (x == y)
+                                    {
+                                        <td>@Html.Raw("&nbsp;")</td>
+                                    }
+                                    else if (x == 0)
+                                    {
+                                        <td>@(y - 1)</td>
+                                    }
+                                    else if (y == 0)
+                                    {
+                                        <td>@Model.Alphabet[x - 1]</td>
+                                    }
+                                }
+                                else
+                                {
+                                    var cellString = GetCellContent(player, (x - 1, y - 1), true);
+                                    <td class="@GetTDClass(cellString) game-cell"
+                                        @if (cellString == "&nbsp;")
+                                        {
+                                            <text>onclick = "window.location.href = '?gameId=@Model.BattleShip.GameId&x=@(x - 1)&y=@(y - 1)&boardId=@player.PlayerBoard.GameBoardId'"
+                                                style = "cursor: pointer"</text>
+                                        }>
+                                        @Html.Raw(cellString)
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+}

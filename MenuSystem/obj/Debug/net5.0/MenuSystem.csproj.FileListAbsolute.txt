@@ -1,0 +1,12 @@
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\net5.0\MenuSystem.deps.json
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\net5.0\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\net5.0\ref\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\bin\Debug\net5.0\MenuSystem.pdb
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.csprojAssemblyReference.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.AssemblyInfoInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.AssemblyInfo.cs
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.csproj.CoreCompileInputs.cache
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\ref\MenuSystem.dll
+C:\Users\Karmo\Desktop\C#\C# gameDev\icd0008-2020f\Battleship\MenuSystem\obj\Debug\net5.0\MenuSystem.pdb

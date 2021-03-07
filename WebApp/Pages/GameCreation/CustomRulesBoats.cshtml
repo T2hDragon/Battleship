@@ -1,0 +1,136 @@
+﻿@page
+@model WebApp.Pages.GameCreation.CustomRulesBoats
+
+<form method="post">
+
+    @for (var i = 0; i < Model.PlayerNames.Length; i++)
+    {
+        <br>
+        <div class="row">
+            <div class="col">
+                @{
+                    var playerNumber = i + 1;
+                }
+                @Html.LabelFor(model => model.PlayerNames[i], $"Player{playerNumber} name", new {@class = "form-label", required = "required"})
+                @Html.TextBoxFor(model => model.PlayerNames[i], new {minLength = 1, maxlength = 25, @class = "form-control", required = "required", placeholder = $"Player{playerNumber}"})
+            </div>
+        </div>
+    }
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <label for="PatrolAmount" class="form-check-label">Patrol Amount</label>
+        </div>
+        <div class="col">
+            <select asp-for="PatrolAmount" required="required" id="PatrolAmount" class="form-select">
+                @for (var i = 0; i <= Model.MaxBoatAmount["Patrol"]; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="CruiserAmount" class="form-check-label">Cruiser Amount</label>
+        </div>
+        <div class="col">
+            <select asp-for="CruiserAmount" required="required" id="CruiserAmount" class="form-select">
+                @for (var i = 0; i <= Model.MaxBoatAmount["Cruiser"]; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="SubmarineAmount" class="form-check-label">Submarine Amount</label>
+        </div>
+        <div class="col">
+            <select asp-for="SubmarineAmount" required="required" id="SubmarineAmount" class="form-select">
+                @for (var i = 0; i <= Model.MaxBoatAmount["Submarine"]; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="BattleshipAmount" class="form-check-label">Battleship Amount</label>
+        </div>
+        <div class="col">
+            <select asp-for="BattleshipAmount" required="required" id="BattleshipAmount" class="form-select">
+                @for (var i = 0; i <= Model.MaxBoatAmount["Battleship"]; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="CarrierAmount" class="form-check-label">Carrier Amount</label>
+        </div>
+        <div class="col">
+            <select asp-for="CarrierAmount" required="required" id="CarrierAmount" class="form-select">
+                @for (var i = 0; i <= Model.MaxBoatAmount["Carrier"]; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <label for="PlaceShipsAutomatically" class="form-check-label">Place Boats Automatically</label>
+        </div>
+        <div class="col">
+            <input asp-for="PlaceBoatsAutomatically" class="form-check">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Place ships</button>
+        </div>
+    </div>
+</form>

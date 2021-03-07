@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Karmo\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Karmo\\.nuget\\packages"
+    ]
+  }
+}
